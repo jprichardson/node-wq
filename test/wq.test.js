@@ -21,7 +21,7 @@ describe('wq', function() {
     })
   })
 
-  describe('+ enq()', function() {
+  describe('test type conversions', function() {
     describe('> when three objects are enq', function() {
       it('should enq them and then deq them', function(done) {
         var count = 0
@@ -34,8 +34,35 @@ describe('wq', function() {
           batch(data).seq().each(function(i, item, next) {
             q.deq(function(err, item) {
               if (err) return done(err)
-              EQ (data[i].name, item.name)
+              EQ (data[i].name, item.data.name)
               count += 1
+              next()
+            })
+          })
+          .error(done)
+          .end(function() {
+            EQ (count, 3)
+            done()
+          })
+        })
+      })
+    })
+
+    describe('> when three strings are enq', function() {
+      it('should enq them and then deq them', function(done) {
+        var count = 0
+        var data = ['JP', 'Leslie', "Chris"]
+        batch(data).seq().each(function(i, item, next) {
+          q.enq(item, i, next)
+        })
+        .error(done)
+        .end(function() {
+          batch(data).seq().each(function(i, item, next) {
+            q.deq(function(err, item) {
+              if (err) return done(err)
+              EQ (data[i], item.data)
+              count += 1
+              next()
             })
           })
           .error(done)
@@ -48,3 +75,4 @@ describe('wq', function() {
     })
   })
 })
+
