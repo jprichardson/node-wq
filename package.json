@@ -1,0 +1,28 @@
+{
+  "author": "JP Richardson <jprichardson@gmail.com>",
+  "name": "wq",
+  "description": "A simple worker queue.",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "jprichardson/node-wq"
+  },
+  "main": "lib/wq.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "devDependencies": {
+    "mocha": "*",
+    "testutil": "~0.6.0",
+    "batchflow": "~0.4.0"
+  },
+  "bin": {
+    "wq": "./bin/wq"
+  },
+  "dependencies": {
+    "redis": "~0.8.6",
+    "hiredis": "~0.1.15",
+    "dq": "~0.4.0",
+    "qflow": "~0.1.0"
+  }
+}
