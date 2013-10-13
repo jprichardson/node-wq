@@ -21,7 +21,7 @@ describe('wq', function() {
     })
   })
 
-  describe('test type conversions', function() {
+  describe('type conversions', function() {
     describe('> when three objects are enq', function() {
       it('should enq them and then deq them', function(done) {
         var count = 0
