@@ -40,5 +40,28 @@ describe('wq', function() {
         })
       })
     })
+
+    describe('> when three objects are enqueued and one is dequeued', function() {
+      it('the waiting q should have a count of 2 and running should have a count of 1 and done should have a count of 0', function(done) {
+        var data = [{name: 'JP'}, {name: 'Leslie'}, {name: 'Chris'}]
+        batch(data).seq().each(function(i, item, next) {
+          q.enq(item, i, next)
+        })
+        .error(done)
+        .end(function() {
+          q.deq(function(err, item) {
+            if (err) return done(err)
+            EQ (item.data.name, 'JP')
+            q.count(function(err, counts) {
+              if (err) return done(err)
+              EQ (counts.waiting, 2)
+              EQ (counts.running, 1)
+              EQ (counts.done, 0)
+              done()
+            })
+          })
+        })
+      })
+    })
   })
 })
