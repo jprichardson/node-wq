@@ -9,7 +9,7 @@
   },
   "main": "lib/wq.js",
   "scripts": {
-    "test": "mocha"
+    "test": "make test"
   },
   "devDependencies": {
     "mocha": "*",
