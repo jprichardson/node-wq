@@ -8,6 +8,17 @@
     "url": "jprichardson/node-wq"
   },
   "main": "lib/wq.js",
+  "keywords": [
+    "worker",
+    "queue",
+    "job",
+    "resque",
+    "data",
+    "dq",
+    "wq",
+    "q",
+    "kue"
+  ],
   "scripts": {
     "test": "make test"
   },
@@ -22,7 +33,6 @@
   "dependencies": {
     "redis": "~0.8.6",
     "hiredis": "~0.1.15",
-    "dq": "~0.4.0",
-    "qflow": "~0.1.0"
+    "dq": "~0.4.0"
   }
 }
