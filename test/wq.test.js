@@ -1,6 +1,8 @@
+
 var wq = require('../lib/wq.js')
   , testutil = require('testutil')
   , batch = require('batchflow')
+  , stats = require('../lib/stats')
 
 var WQ_NAME = 'wqtest'
 var q = null
@@ -17,7 +19,7 @@ describe('wq', function() {
   afterEach(function(done) {
     wq.destroy({name: WQ_NAME}, function(err) {
       if (err) return done(err)
-      done()
+      batch(stats.keys.call(q)).par().each(function(k,v,n) { q.redisClient.del(v, n) }).end(function(){done()})
     })
   })
 
