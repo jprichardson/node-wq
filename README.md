@@ -8,12 +8,14 @@ wq is a worker queue built on [dq](https://github.com/jprichardson/node-dq).
 Install
 -------
 
-    npm install [-g] [--save] dq
+    npm install [-g] [--save] wq
 
 
 
 Usage
 -----
+
+Too early to use right now.
 
 
 
