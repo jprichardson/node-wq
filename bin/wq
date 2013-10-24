@@ -1,6 +1,9 @@
 #!/usr/bin/env node
 
-var dq = require('../lib/dq.js')
+console.log('at this time, does nothing')
+return;
+
+/*var dq = require('../lib/dq.js')
   , program = require('commander')
   , fs = require('fs')
   , path = require('path');
@@ -33,5 +36,5 @@ dq.create(program, function(err, q){
     })
   }
   again()
-})
+})*/
 
