@@ -25,7 +25,8 @@
   "devDependencies": {
     "mocha": "*",
     "testutil": "~0.6.0",
-    "batchflow": "~0.4.0"
+    "batchflow": "~0.4.0",
+    "nextflow": "~0.3.0"
   },
   "bin": {
     "wq": "./bin/wq"
