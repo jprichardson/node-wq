@@ -19,7 +19,7 @@ describe('wq', function() {
   afterEach(function(done) {
     wq.destroy({name: WQ_NAME}, function(err) {
       if (err) return done(err)
-      batch(stats.keys.call(q)).par().each(function(k,v,n) { q.redisClient.del(v, n) }).end(function(){done()})
+      stats.destroy(q, done)
     })
   })
 
